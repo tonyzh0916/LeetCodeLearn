@@ -12,23 +12,43 @@ public class ArrayConclusion {
 		int[] arr= {1,1,2};
 		thirdMax(arr);
 	}
+
+// 	Students are asked to stand in non-decreasing order of heights for an annual photo.
+
+// Return the minimum number of students that must move in order for all students to be standing in non-decreasing order of height.
+
+// Notice that when a group of students is selected they can reorder in any possible way between themselves and the non selected students remain on their seats.
+
+ 
+
+// Example 1:
+
+// Input: heights = [1,1,4,2,1,3]
+// Output: 3
+// Explanation: 
+// Current array : [1,1,4,2,1,3]
+// Target array  : [1,1,1,2,3,4]
+// On index 2 (0-based) we have 4 vs 1 so we have to move this student.
+// On index 4 (0-based) we have 1 vs 3 so we have to move this student.
+// On index 5 (0-based) we have 3 vs 4 so we have to move this student.
 	
-	 public static int heightChecker(int[] heights) {//?
-	        int result =0;
-	        for(int i=0;i<heights.length-1;i++){
-	            for(int k=0; k<heights.length-1-i;k++){
-	                if(heights[k]>heights[k+1]){
-	                    int temp=0;
-	                    temp=heights[k+1];
-	                    heights[k+1]=heights[k];
-	                    heights[k]=temp;
-	                    
-	                }
-	            }
-	        }
-	        System.out.println(Arrays.toString(heights));
-	        return result;
-	    }
+
+	// The problem asks us to figure out how many students are out of place in terms of ranking them from 
+	// shortest to tallest. I create a clone of the input array and sort it. By sorting the cloned array, 
+	// we can see what our array should look like if each student were to be correctly ordered by height. 
+	// After this point the problem becomes very simple because we just need to iterate from i = 0 to n-1 and 
+	// compare the value at i in each array to see if they are the same. If they are not the same, then that means 
+	// that a student in the input array is not in their correct spot, therefore count is incremented by 1. 
+	// The time complexity is O(nlogn) because it is bounded by the Java sort method, which runs in O(nlogn) time.
+	public int heightChecker(int[] heights) {
+		int[] copy = heights.clone();
+		Arrays.sort(copy);
+		int count = 0;
+		for(int i = 0; i < copy.length; i++){
+				if(heights[i]!=copy[i])count++;
+		}
+		return count;
+}
 	 
 	 
 //	 
