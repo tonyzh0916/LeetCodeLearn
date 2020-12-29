@@ -17,6 +17,23 @@ class Solution {
   }
 }
 
+public static class Solution2 {
+  public ListNode reverseList(ListNode head) {
+      return reverse(head, null);
+  }
+
+  ListNode reverse(ListNode head, ListNode newHead) {
+      if (head == null) {
+          return newHead;
+      }
+      ListNode next = head.next;
+      head.next = newHead;
+      newHead = head;
+      head = next;
+      return reverse(head, newHead);
+  }
+}
+
 // Remove all elements from a linked list of integers that have value val.
 // Example:
 // Input:  1->2->6->3->4->5->6, val = 6
@@ -63,3 +80,49 @@ public class Solution {
     return head;
   }
 }
+
+
+// Given a singly linked list, determine if it is a palindrome.
+// Example 1:
+// Input: 1->2
+// Output: false
+// Example 2:
+// Input: 1->2->2->1
+// Output: true
+class Solution {
+  public boolean isPalindrome(ListNode head) {
+     if(head ==null){
+         return true;
+     }
+      
+      ListNode fast = head;
+      ListNode slow = head;
+      while(fast.next!=null && fast.next.next!=null){
+          fast = fast.next.next;
+          slow = slow.next;
+      }
+      
+      ListNode firstHead = reverse(slow.next);
+      ListNode secendHead = head;
+      while(firstHead!=null && secendHead !=null){
+          if(firstHead.val!=secendHead.val){
+              return false;
+          }
+          firstHead=firstHead.next;
+          secendHead =secendHead.next;
+      }
+      return true;
+      }
+      
+      private ListNode reverse(ListNode head){
+          ListNode newHead = null;
+          while(head!=null){
+              ListNode temp = head.next;
+              head.next = newHead;
+              newHead =head;
+              head = temp;
+          }
+          return newHead;
+      }
+  
+  }
