@@ -30,4 +30,32 @@ public class IntroducAttay {
     	}
         return -1;
     }
+
+    public static int pivotIndex2(int[] nums) {
+      int sum = 0, leftsum = 0;
+      for (int x: nums) sum += x;
+      for (int i = 0; i < nums.length; ++i) {
+          if (leftsum == sum - leftsum - nums[i]) return i;
+          leftsum += nums[i];
+      }
+      return -1;
+	}
+	
+	//[1,2,3] -> [1,2,4]
+	public int[] plusOne(int[] digits) {
+		int n = digits.length;
+		for(int i=n-1; i>=0; i--) {
+				if(digits[i] < 9) {
+						digits[i]++;
+						return digits;
+				}
+				
+				digits[i] = 0;
+		}
+		
+		int[] newNumber = new int [n+1];
+		newNumber[0] = 1;
+		
+		return newNumber;
+}
 }
