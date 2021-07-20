@@ -57,10 +57,7 @@ class MaxStack{
     Stack<Integer> tmp = new Stack<Integer>;
     while(data.peek()!=res){
       tem.push(data.pop());
-      data.pop();
     }
-
-    data.pop();
     max.pop();
 
     while(!tmp.isEmpty()){
