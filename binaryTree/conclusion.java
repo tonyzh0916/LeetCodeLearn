@@ -34,3 +34,28 @@ class Solution {
       return false;
   }
 }
+
+class Solution{
+    public List<Integer> closestKValues(TreeNode root, double target, int k){
+        LinkedList<Integer> res = new LinkedList<>();
+        collect(root, target, k,res);
+        return res;
+    }
+
+    private void collect(TreeNode root, double target, int k, LinkedList<Integer> res){
+        if(root==null){
+            return;
+        }
+        collect(root.left, target, k, res);
+
+        if(res.size()==k){
+            //if size k, add curent and remove head of it's optimal, otherwise return
+            if(Math.abs(target-root.val)>=Math.abs(target-res.peekFirst())){
+                return;
+            }
+            res.removeFirst();
+        }
+        res.add(root.val);
+        collect(root.right, target,k,res);
+    }
+}
