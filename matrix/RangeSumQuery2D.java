@@ -15,6 +15,13 @@ defined by its upper left corner (row1, col1) and lower right corner (row2, col2
 1 2 0 1 5
 4 1 0 1 7
 1 0 3 0 5
+
+..............
+.     .      .
+.   A .   B  .
+..............      
+.  C  .   D  .
+..............
 */
 private int[][] sums;
 public NumMatrix2(int[][] matrix){
@@ -37,3 +44,7 @@ public NumMatrix2(int[][] matrix){
     }
   }
 }
+
+
+matrix[row1, col1 ~ row2, col2] = D=(A+B+C+D)-(A+C)-(A+B)+A=
+matrix[0,0~row2,col2]-matrix[0,0~row1-1,col2]-matrix[0,0~row2,col1-1]+matrix[0,0~row1-1,col1-1]
