@@ -32,4 +32,37 @@ Since we only need to  access its previous element at each step, two variables a
 Notic the difference between  the two: maxEndingHere and maxSoFar
 maxEndingHere is the maximum sum of  subarray that must end at index k
 maxSoFar is the global maximum subarray sum
+
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
 */
+
+public int maxSubArray(int[] A){
+  int maxEndingHere = A[0], maxSoFar=a[0];
+  for(int i=1;i<A.length;i++){
+    maxEndingHere = Math.max(maxEndingHere+A[i], A[i]);
+    maxSoFar =  Math.max(maxEndingHere, maxSoFar);
+  }
+  return maxSoFar;
+}
+
+public int maxSubArray(int[] A){
+  if(A==null || A.length==0){
+    throw new IllegalArgumentException("Empty array");
+  }
+
+  int maxSum = Integer.MIN_VALUE, currentSum = 0; //to prevent overflow
+
+  for(int i=0; i<A.length;i++){
+    currentSum+=A[i];
+    //when current sum exceed maxsum, current pos is the beginning of  the  array
+    if(currentSum > maxSum){
+      maxSum = currentSum;
+    }
+    //when a negative subsequence is detected,not only can we break the inner loop, but also we can 
+    //advance pos to i+1
+    if(currentSum<0){
+      currentSum=0;
+    }
+  }
+}
