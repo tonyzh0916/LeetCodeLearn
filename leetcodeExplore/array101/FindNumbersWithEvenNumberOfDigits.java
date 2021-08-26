@@ -43,3 +43,24 @@ class Solution {
       return count;
   }
 }
+
+
+//////////////////////////////////////08/25/2021////////
+
+public int findNumbers(int[] nums){
+    int result =0;
+    for(int num : nums){
+        if(numberOfDigits(num)%==0){
+            result++;
+        }
+    }
+    return result;
+}
+
+public static int numberOfDigits(int n){
+    int count =0;
+    while(n>0){
+        n/10;
+        count++
+    }
+}

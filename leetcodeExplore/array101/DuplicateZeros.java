@@ -76,3 +76,18 @@ public void duplicateZeros3(int[] arr){
      }
    }
 }
+
+//////////////////08/25/2021////
+int  n= arr.length, index=0;
+int[] copy= arr.clone();
+for (int num : copy){
+  if(index>=n){
+    break;
+  }
+  if(index+1<n && num==0){
+    arr[index++]=0;
+    arr[index++]=0;
+  }else{
+    arr[index++]= num;
+  }
+}
