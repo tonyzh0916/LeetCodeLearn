@@ -1,14 +1,3 @@
-// Binary Tree Preorder Traversal
-class Solution {
-List<Integer> result = ArrayList<Integer>();
-public List<Integer> preorderTraversal(TreeNode root) {
-  if(root==null) return result;
-  result.add(root);
-  preorderTraversal(root.left);
-  preorderTraversal(root.right);
-  return result;
-}
-}
 
 // Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
 // For example:
