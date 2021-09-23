@@ -38,3 +38,21 @@ public class Solution {
       return res;
   }
 }
+
+
+//////////////////////////fisher solution /////////
+public class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        return dfs(root, new ArrayList<Integer>)
+
+    private dfs(TreeNode root, List<Integer> list){
+        if(root==null){
+            return list;
+        }
+
+        list = dfs(root.left, list);
+        list = dfs(root.right, list);
+        list.add(root.val);
+        return list;
+    }
+  }
