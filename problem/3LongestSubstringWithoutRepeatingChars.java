@@ -36,7 +36,7 @@ class Solution {
       HashMap<Character, Integer> map = new HashMap<>();
       int maxLen =1;
       int left =0;
-      
+      //pwwkew
       for(int i=0; i<s.length(); i++){
           char c = s.charAt(i);
           if(map.containsKey(c)){
@@ -51,3 +51,28 @@ class Solution {
       return maxLen;
   }
 }
+
+///-----12/1/2021------
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+       if(s==null || s.length()==0) return 0;
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+       int maxLen = 1;
+       int left = 0;
+
+       for(int i=0; i<s.length(); i++){
+           char c = s.charAt(i);
+
+           if(map.containsKey(c)){
+               left = Math.max(left, map.get(c)+1);
+           }
+
+           if(i+1-left > maxLen){
+               maxLen = i+1-left;
+           }
+           map.put(c.i);
+       }
+
+       return maxLen;
+    }
+  }
