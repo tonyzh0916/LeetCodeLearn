@@ -74,7 +74,6 @@ class Solution {
   }
 }
 
-
 //-------------practice 11/30
 public class ListNode{
   int val;
@@ -99,6 +98,26 @@ class Solution{
       cur = cur.next;
       if(l1 !=null) l1=l1.next;
       if(l2 !=null) l2=l2.next; 
+    };
+    if(count ==1) cur.next = new ListNode(1);
+    return dummy.next;
+  }
+}
+//12/2/2021 practice
+class Solution{
+  public ListNode addTwoNumber(ListNode l1, ListNode l2){
+    ListNode dummy = new ListNode(-1);
+    ListNode cur = dummy;
+    int count =0;
+    while(l1!=null || l2!=null){
+      int d1 = l1.val==null?0:l1.val;
+      int d2 = l2.val==null?0:l2.val;
+      int sum = d1+d2+count;
+      count = sum>10?1:0;
+      cur.next = new ListNode(sum/10);
+      cur = cur.next;
+      if(l1!=null) l1= l1.next;
+      if(l2!=null) l2= l2.next;
     };
     if(count ==1) cur.next = new ListNode(1);
     return dummy.next;
