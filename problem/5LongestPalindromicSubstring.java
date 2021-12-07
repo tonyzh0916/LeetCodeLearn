@@ -28,7 +28,6 @@ s consist of only digits and English letters.
 class Solution {
   int maxLen =0;
   int left = 0;
-  
   public String longestPalindrome(String s) {
       if(s==null || s.length()<=1) return s;
       
@@ -36,10 +35,8 @@ class Solution {
           helper(s,i,i); //aba
           helper(s,i,i+1);//abba
       }
-      
       return s.substring(left, left+maxLen);
   }
-  
   private void helper(String s, int l, int r){
       while(l>=0 && r<s.length() && s.charAt(l)==s.charAt(r)){
           if(r-l+1 > maxLen){
@@ -50,4 +47,22 @@ class Solution {
           r++;
       }
   }
+}
+///12/06/2021
+class Solution{
+    int maxLen =0;
+    int left =0;
+    public String longestPalindrome(String s){
+        if(s==null || s.length()<=1) return s;
+        for(int i=0; i<s.length();i++){
+            helper(s,i,i);
+            helper(s,i,i+1);
+        }
+        return s.substring(left, left+maxLen);
+    }
+    private void helper(String s, int l, int r){
+        while(l>=0 && r<s.length()&& s.charAt(l)==s.charAt(r) ){
+            if(r-l)
+        }
+    }
 }
