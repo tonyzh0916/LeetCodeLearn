@@ -28,7 +28,7 @@ Constraints:
 0 <= s.length <= 5 * 104
 s consists of English letters, digits, symbols and spaces.
 */
-
+//  "abba"
 class Solution {
   public int lengthOfLongestSubstring(String s) {
       if(s==null || s.length()==0) return 0;
@@ -104,6 +104,29 @@ class Solution{
             if(map.containsKey(c)){
                 left = Math.max(left, map.get(c)+1);
             }
+            if(i+1-left>maxLen){
+                maxLen=i+1-left;
+            }
+            map.put(c,i);
+        }
+        return maxLen;
+    }
+}
+
+//12/09/2021 practic 
+class Solution{
+    public int lengthOfLongestSubstring(String s){
+        if(s==null || s.length()==0) return;
+        Map<Character, Integer> map = HashMap<Character, Integer>();
+        int maxLen = 1;
+        int left =0;
+
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            if(map.containsKey(c)){
+                left = Math.max(left, map.get(c)+1);
+            }
+
             if(i+1-left>maxLen){
                 maxLen=i+1-left;
             }
