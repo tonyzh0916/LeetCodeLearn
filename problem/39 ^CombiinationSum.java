@@ -53,13 +53,13 @@ class Solution {
     if(target<0) return;
     if(target==0){
       res.add(new ArrayList<>(temp));
-      return
+      return;
     }
 
-    for(int i=tart; i<nums.length; i++){
+    for(int i=start; i<nums.length; i++){
       temp.add(nums[i]);
       helper(nums, res, target-nums[i], temp, i);
-      temp.remove(temp,size()-1)
+      temp.remove(temp.size()-1);
     }
   }
 }
