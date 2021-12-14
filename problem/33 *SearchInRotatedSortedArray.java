@@ -101,3 +101,39 @@ class Solution {
     }
   }
 }
+
+/// 12/13/2021
+class Solution{
+  public int search(int[] nums, int target){
+    if(nums==null || nums.length()==0) return -1;
+
+    int left = 0;
+    int right= nums.length()-1;
+    if(nums[mid]==target) return  mid;
+
+    while(left+1<right){
+      int  mid  = left +(right-left)/2;
+      if(nums[left]>=nums[mid]){
+        if(target>=nums[left] && target<=nums[mid]){
+          right = mid ;
+        }else{
+          left = mid;
+        }
+      }else{
+        if(target<=nums[right] && target>=nums[mid]){
+          left = mid;
+        }else{
+          right = mid;
+        }
+      }
+    }
+
+    if(nums[left]==target){
+      return left;
+    }else if(nums[right]==target){
+      return right;
+    }else{
+      return -1;
+    }
+  }
+}
