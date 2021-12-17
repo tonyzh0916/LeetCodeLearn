@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
 /*
 Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
 
