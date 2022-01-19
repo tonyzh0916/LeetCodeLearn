@@ -46,3 +46,23 @@ class Solution {
     return res;
   }
 }
+
+////////1/18/2021//
+public ListNode rotateRight2(ListNode head, int n){
+  if(head ==null || n==0) return head;
+
+  ListNode index = head;
+  int len =1;
+  while(index.next!=null){
+    len++;
+    index=index.next;
+  }
+  index.next = head;
+  n=n%len;
+  for(int i=0; i<len-n; i++){
+    head = head.next;
+  }
+  ListNode res = head.next;
+  head.next  = null;
+  return res;
+}
