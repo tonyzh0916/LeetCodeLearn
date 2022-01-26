@@ -40,6 +40,8 @@ Constraints:
 1 <= path.length <= 3000
 path consists of English letters, digits, period '.', slash '/' or '_'.
 path is a valid absolute Unix path.
+
+1210 289
 */
 
 
@@ -65,5 +67,28 @@ class Solution {
         res="/"+stack.pop()+res;
       }
       return res.length()==0?"/":res;
+  }
+}
+//////////
+class Solution{
+  public String simplifyPath(String path){
+    Stack<String> stack = new Stack<>();
+    String[] arr = path.split('/');
+    for(int i=0; i<arr.length;i++){
+      String curr = arr[i].trim();
+      if(curr==null || curr.length==0 || curr.equals(".")) continue;
+      if(curr.equals("..")){
+        if(!stack.isEmpty()){
+          stack.pop();
+        }
+      }else{
+        stack.push(curr);
+      }
+    }
+    String res="";
+    while(!stack.isEmpty()){
+      res = "/"+stack.pop()+res;
+    }
+    return res.length()==0?"/":res;
   }
 }
