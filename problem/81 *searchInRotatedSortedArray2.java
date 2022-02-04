@@ -65,3 +65,42 @@ class Solution {
       }
   }
 }
+
+////////////////
+class Solution2{
+  public boolean search(int[] nums, int target) {
+    if(nums.length==0 || nums==null) return false;
+    int left = 0;
+    int right = nums.length-1;
+
+    while(left+1<right){
+      int mid = left+(right-left)/2;
+      if(target==nums[mid]){
+        return true;
+      }
+      if(nums[mid]==nums[right]){
+        right--;
+      }else if(nums[mid]==nums[left]){
+        left++;
+      }else if(nums[left]<nums[mid]){
+        if(nums[left]<=target && nums[mid]>=target){
+          right = mid;
+        }else{
+          left = mid;
+        }
+      }else if(nums[right]>nums[mid]){
+        if(nums[mid]<=target && nums[right]>=target){
+          left = mid;
+        }else{
+          right=mid;
+        }
+      }
+    }
+    if(nums[left]==target || nums[right]==target){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+}

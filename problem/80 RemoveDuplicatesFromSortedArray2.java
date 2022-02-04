@@ -54,3 +54,15 @@ class Solution {
   }
 }
 
+/////////////////////
+class Solution2{
+  public int removeDuplicates2(int[] nums){
+    int p = 2;
+    for(int i=2; i<nums.length; i++){
+      if(nums[p]!=nums[i]){
+        nums[p++]=nums[i];
+      }
+    }
+    return p;
+  }
+}
