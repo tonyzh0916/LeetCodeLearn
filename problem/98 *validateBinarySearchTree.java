@@ -29,7 +29,7 @@ The number of nodes in the tree is in the range [1, 104].
 class Solution {
   public boolean isValidBST(TreeNode root) {
       if(root == null) return true;
-      return helper(root.left, Long.MIN_VALUE, root.left) && helper(root.right, root.val, Long.MAX_VALUE);
+      return helper(root.left, Long.MIN_VALUE, root.val) && helper(root.right, root.val, Long.MAX_VALUE);
   }
 
   private boolean helper(TreeNode root, long min, long max){
