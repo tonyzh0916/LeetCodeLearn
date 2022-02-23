@@ -33,7 +33,9 @@ class Solution {
       }
       return res;
   }
-}class Solution {
+}
+
+class Solution {
   public int jump(int[] nums) {
       int max =0;
       int res =0;
