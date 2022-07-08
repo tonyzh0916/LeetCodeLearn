@@ -27,3 +27,21 @@ Input: graph = [[1,0,1],[1,1,0],[0,1,1]]
 Output: -1
 Explanation: There is no celebrity.
  */
+public class Solution extends Relation{
+  public int findCelebrity(int n){
+    int can = 0;
+     for(int i=1; i<n; i++){
+      if(!knows(can, i)){
+        can = i;
+      }
+     }
+
+     for(int i=0; i<n; i++){
+      if(can == i) continue;
+      if(!knows(i, can)|| knows(can, i)){
+        return -1;
+      }
+     }
+     return can;
+  }
+}
