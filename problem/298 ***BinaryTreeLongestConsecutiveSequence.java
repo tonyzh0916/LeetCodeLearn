@@ -34,3 +34,24 @@ Input:
 Output: 2
 Explanation: Longest consecutive sequence path is 2-3, not 3-2-1, so return 2.
  */
+class Solution{
+   int res =1;
+   public  int longestConsecutive(TreeNode root){
+      if(root = null ) return 0;
+      helper(root, root.val, 0);
+      return res;
+   } 
+
+   private int helper(TreeNode root, TreeNode cur, int count){
+      if(root == null) return;
+      if(root.val == cur){
+         count++;
+         res = Math.max(res, count);
+         helper(root.left,  cur+1, count);
+         helper(root.right, cur+1, count);
+      }else{
+         helper(root.left,  root.val+1, count);
+         helper(root.right, root.val+1, count);
+      }
+   }
+}
