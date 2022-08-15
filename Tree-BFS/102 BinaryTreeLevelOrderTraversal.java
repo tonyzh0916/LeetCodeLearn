@@ -50,3 +50,29 @@ public List<List<Integer>> levelOrder2(TreeNode root){
   }
   return res;
 }
+//
+public List<List<Integer>> levelOrder3(TreeNode root){
+  if(root == null){
+    return null;
+  }
+  List<List<Integer>> res = new ArrayList<>();
+  Queue<TreeNode> queue = new LinkedList<>();
+  queue.offer(root);
+  while(!queue.isEmpty()){
+    int size = queue.size;
+    List<TreeNode> list = new ArrayList<>();
+   
+    for(int i=0; i<size; i++){
+       TreeNode cur = queue.poll();
+       list.add(curr.val);
+      if(curr.left!=null){
+        queue.offer(curr.left);
+      }
+      if(curr.right !=null){
+        queue.offer(curr.right);
+      }
+    }
+  }
+  return res;
+}
+
