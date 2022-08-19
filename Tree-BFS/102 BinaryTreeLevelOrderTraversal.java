@@ -25,6 +25,31 @@ public List<List<Integer>> levelOrder(TreeNode root){
   return res;
 }
 /////////////////////////
+public List<List<Integer>> levelOrder4(TreeNode root){
+  if(root==null){
+    return null;
+  }
+  Queue<TreeNode> queue = new LinkedList<>();
+  List<List<Integer>> res = new ArrayList<>();
+  queue.offer(root);
+  while(!queue.isEmpty()){
+    int size =  queue.size();
+    List<Integer> level = new ArrayList<>();
+    for(int i=0; i<size; i++){
+      TreeNode curr = queue.poll();
+      level.add(cur.val);
+      if(curr.left!=null){
+        queue.offer(curr.left);
+      }
+      if(curr.right!=null){
+        queue.offer(curr.right);
+      }
+    }
+    res.add(level);
+  }
+  return res;
+}
+/////////////////////////
 public List<List<Integer>> levelOrder2(TreeNode root){
   if(root ==null){
     return null;
