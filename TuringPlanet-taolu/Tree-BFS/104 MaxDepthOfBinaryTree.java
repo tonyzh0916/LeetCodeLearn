@@ -20,6 +20,7 @@ public int maxDepth(TreeNode  root){
     depth++;
   }
   return depth;
+  
 }
 ///////////////////////
 public int maxDepth2(TreeNode root){
