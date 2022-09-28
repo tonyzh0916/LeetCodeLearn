@@ -1,5 +1,5 @@
 class Solution{
-  public int binarySearch(int[] arr,  int k){
+  public  int binarySearch3(int[] arr,  int k){
     int l=0, r=arr.length-1;
     while(l<r){
       int mid = l+(r-l+1)/2;
