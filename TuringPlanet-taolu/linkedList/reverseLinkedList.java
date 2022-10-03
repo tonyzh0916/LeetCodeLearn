@@ -9,6 +9,7 @@ class Solution{
     return reverse_head;
   }
 
+
   public ListNode reverse2(ListNode head){
     if(head ==null || head.next == null){
       return head;
@@ -20,3 +21,5 @@ class Solution{
     return reversed_head;
   }
 }
+
+
