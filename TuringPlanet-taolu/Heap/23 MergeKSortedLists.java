@@ -19,7 +19,28 @@ class Solution{
         heap.offer(top.next);
       }
     }
+      return res.next;
   }
-  return res.next;
+
+  public ListNode mergeKlists2(ListNode[] lists){
+    PriorityQueue<ListNode> heap = new PriorityQueue<>((a,b)->a.val - b.val);
+
+    for(ListNode list : lists){
+      heap.offer(list);
+    }
+    ListNode res = new ListNode(0);
+    ListNode cur = res;
+    while(!heap.isEmpty()){
+      ListNode top = heap.poll();
+      cur.next = top;
+      cur = cur.next;
+      if(top.next!=null){
+        heap.offer(top.next);
+      }
+
+    }
+    return res;
+  }
+
 }
 
