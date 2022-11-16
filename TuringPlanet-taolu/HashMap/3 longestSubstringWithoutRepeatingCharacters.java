@@ -9,7 +9,7 @@ class Solution {
         for(int i=0; i<s.length(); i++){
             char c = s.charAt(i);
             if(map.containsKey(c)){
-                left = Math.max(left, map.get(c))
+                left = Math.max(left, map.get(c));
             }
 
             if(i-left+1>maxLen){
